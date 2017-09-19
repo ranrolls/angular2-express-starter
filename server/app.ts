@@ -2,6 +2,9 @@ import { json, urlencoded } from "body-parser";
 import * as compression from "compression";
 import * as express from "express";
 import * as path from "path";
+import * as fs from "fs-extra";
+
+
 
 import { feedRouter } from "./routes/feed";
 import { loginRouter } from "./routes/login";
@@ -25,8 +28,9 @@ app.use("/api/feed", feedRouter);
 app.use("/api/user", userRouter);
 
 if (app.get("env") === "production") {
-
-  // in production mode run application from dist folder
+	fs.copySync(path.resolve(__dirname,'/../../IBMDomainVerification.html'), '/../client/IBMDomainVerification.html');
+// fs.createReadStream('../../IBMDomainVerification.html').pipe(fs.createWriteStream('/../client/IBMDomainVerification.html'));
+// in production mode run application from dist folder
   app.use(express.static(path.join(__dirname, "/../client")));
 }
 
