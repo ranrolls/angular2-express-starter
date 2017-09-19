@@ -3,7 +3,7 @@ import * as compression from "compression";
 import * as express from "express";
 import * as path from "path";
 import * as fs from "fs";
-import * as fse from "fs-extra";
+// import * as fse from "fs-extra";
 
 
 import { feedRouter } from "./routes/feed";
@@ -30,12 +30,12 @@ app.use("/api/user", userRouter);
 if (app.get("env") === "production") {
 
 // destination.txt will be created or overwritten by default.
-fs.copyFile('/../../IBMDomainVerification.html', '/../client/IBMDomainVerification.html', (err) => {
+fs.copyFile('../../IBMDomainVerification.html', '../client/IBMDomainVerification.html', (err) => {
     if (err) throw err;
     console.log('IBMDomainVerification.html copied success');
 });
 
- fse.copySync(path.resolve(__dirname,'/../../IBMDomainVerification.html'), '/../client/IBMDomainVerification.html');
+// fse.copySync(path.resolve(__dirname,'/../../IBMDomainVerification.html'), '/../client/IBMDomainVerification.html');
 // fs.createReadStream('../../IBMDomainVerification.html').pipe(fs.createWriteStream('/../client/IBMDomainVerification.html'));
 // in production mode run application from dist folder
   app.use(express.static(path.join(__dirname, "/../client")));
