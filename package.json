@@ -12,7 +12,7 @@
     "e2e:client": "ng e2e",
     "build": "ng build --prod --sm=false --aot --output-path=dist/client && npm run _server:build",
     "_server:run": "tsc -p ./server && concurrently \"tsc -w -p ./server\" \"nodemon --delay 5 dist/server/bin/www.js\" ",
-    "_server:build": "shx cp IBMDomainVerification.html dist/client && tsc -p ./server",
+    "_server:build": "tsc -p ./server",
     "postinstall": "npm run build"
   },
   "author": "Vlado Tešanović",
