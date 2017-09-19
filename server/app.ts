@@ -2,9 +2,8 @@ import { json, urlencoded } from "body-parser";
 import * as compression from "compression";
 import * as express from "express";
 import * as path from "path";
-import * as fs from "fs";
+// import * as fs from "fs";
 // import * as fse from "fs-extra";
-
 
 import { feedRouter } from "./routes/feed";
 import { loginRouter } from "./routes/login";
@@ -30,7 +29,7 @@ app.use("/api/user", userRouter);
 if (app.get("env") === "production") {
 
 // destination.txt will be created or overwritten by default.
-fs.writeFileSync('../client/IBMDomainVerification.html', fs.readFileSync('../../IBMDomainVerification.html',));
+//fs.writeFileSync('../client/IBMDomainVerification.html', fs.readFileSync('../../IBMDomainVerification.html',));
 
 // fse.copySync(path.resolve(__dirname,'/../../IBMDomainVerification.html'), '/../client/IBMDomainVerification.html');
 // fs.createReadStream('../../IBMDomainVerification.html').pipe(fs.createWriteStream('/../client/IBMDomainVerification.html'));
