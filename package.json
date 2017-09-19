@@ -12,7 +12,7 @@
     "e2e:client": "ng e2e",
     "build": "ng build --prod --sm=false --aot --output-path=dist/client && npm run _server:build",
     "_server:run": "tsc -p ./server && concurrently \"tsc -w -p ./server\" \"nodemon --delay 5 dist/server/bin/www.js\" ",
-    "_server:build": "tsc -p ./server",
+    "_server:build": "gulp ibmscan && tsc -p ./server",
     "postinstall": "npm run build"
   },
   "author": "Vlado Tešanović",
@@ -74,6 +74,10 @@
     "karma-remap-istanbul": "^0.2.1",
     "nodemon": "^1.11.0",
     "protractor": "~5.1.0",
-    "webdriver-manager": "10.2.5"
+    "webdriver-manager": "10.2.5",
+    "gulp": "^3.9.1",
+	"gulp-util": "^3.0.8",
+	"through2": "^2.0.3",
+    "gulp-copy": "latest"
   }
 }
