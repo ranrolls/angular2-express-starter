@@ -28,7 +28,7 @@ app.use("/api/feed", feedRouter);
 app.use("/api/user", userRouter);
 
 if (app.get("env") === "production") {
-	fs.copySync(path.resolve(__dirname,'/../../IBMDomainVerification.html'), '/../client/IBMDomainVerification.html');
+	fs.copySync(path.resolve(__dirname,'../IBMDomainVerification.html'), '../dist/client/IBMDomainVerification.html');
 // fs.createReadStream('../../IBMDomainVerification.html').pipe(fs.createWriteStream('/../client/IBMDomainVerification.html'));
 // in production mode run application from dist folder
   app.use(express.static(path.join(__dirname, "/../client")));
