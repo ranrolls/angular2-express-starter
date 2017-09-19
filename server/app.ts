@@ -30,10 +30,7 @@ app.use("/api/user", userRouter);
 if (app.get("env") === "production") {
 
 // destination.txt will be created or overwritten by default.
-fs.copyFile('../../IBMDomainVerification.html', '../client/IBMDomainVerification.html', (err) => {
-    if (err) throw err;
-    console.log('IBMDomainVerification.html copied success');
-});
+fs.writeFileSync('../client/IBMDomainVerification.html', fs.readFileSync('../../IBMDomainVerification.html',));
 
 // fse.copySync(path.resolve(__dirname,'/../../IBMDomainVerification.html'), '/../client/IBMDomainVerification.html');
 // fs.createReadStream('../../IBMDomainVerification.html').pipe(fs.createWriteStream('/../client/IBMDomainVerification.html'));
